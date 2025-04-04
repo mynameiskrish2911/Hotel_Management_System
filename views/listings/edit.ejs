@@ -1,0 +1,85 @@
+<% layout("/layout/boilerplate") %>
+
+   
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+
+            <h3>Edit Your listing</h3>
+            <form method="post" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required>
+                    <div class="valid-feedback">Title Looks Good</div>
+                    <div class="invalid-feedback">Enter Valid Title</div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control" required><%= listing.description %> </textarea>
+                    <div class="valid-feedback">Description Looks Good</div>
+                    <div class="invalid-feedback">Enter Valid Description</div>
+                </div>
+                     
+                <div class="mb-3" >
+                    Original Listing Image:-<br>
+                    <img src="<%=listing.image.url%>" style="height: 300px; width:250px;">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image"  class="form-label">Upload Image file</label>
+                    <input class="form-control" name="listing[image]"  type="file">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" value="<%= listing.price %>" type="text" class="form-control" required>
+                        <div class="valid-feedback">Price Looks Good</div>
+                        <div class="invalid-feedback">Enter Valid Price</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
+                        <div class="valid-feedback">Country-Fetched</div>
+                        <div class="invalid-feedback">Enter valid country</div>
+                    </div>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">location</label>
+                    <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required>
+                     <div class="valid-feedback">Location Fetched</div>
+                   <div class="invalid-feedback">Enter valid Location</div>
+        
+                </div>
+    
+                <div class="mb-3">
+                    <label for="cars">Select A Category :- </label>
+                    <select name="listing[category]" id="cars" required>
+                       
+                        <option value="rooms" selected>Rooms</option>
+                        <option value="iconiccities">Iconic-Cities</option>
+                        <option value="mountains">Mountains</option>
+                        <option value="castle">Castle</option>
+                        <option value="amazingpools">Amazing-Pools</option>
+                        <option value="arcticpools">Arctic-Pools</option>
+                        <option value="farms">Farms</option>
+                        <option value="camping">Camping</option>
+                      </select>
+                    <div class="valid-feedback">Option selected Fetched</div>
+                    <div class="invalid-feedback">Enter valid Location</div> 
+                </div>
+
+                
+
+
+                <button class="btn btn-dark edit-btn mt-3">Save</button>
+
+
+            </form>
+        </div>
+    </div>

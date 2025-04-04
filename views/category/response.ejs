@@ -1,0 +1,26 @@
+<% layout("/layout/boilerplate")%>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+    <% for(let listing of alllistings){ %>
+        <%if(listing.category==ans){%>
+
+      <a href="/listings/<%=listing.id%>" class="listing-link">
+        <div class="card col listing-card">
+          <img src="<%=listing.image.url%>" class="card-img-top" alt="listing.img" style="height: 16rem">
+          <div class="card-img-overlay">abcd</div>
+          <div class="card-body">
+            <p class="card-text">
+              <b>
+                <%= listing.title %><br>
+              </b>
+              <%= listing.price.toLocaleString("en-IN")%> /night
+               
+            </p>
+          </div>
+        </div>
+      </a>
+     <%}%>
+      <% } %>
+      
+
+  </div>
